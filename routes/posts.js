@@ -7,16 +7,19 @@ const Op = Sequelize.Op;
 
 //get list of posts
 router.get('/', (req,res) => {
+    //check that the session has loggedin = true
     if(req.session.loggedin)
     {
         Post.findAll()
         .then(posts => {
+            //if we found posts, render the posts page with a list of them
             res.render('posts', { 
                 posts
             })
         })
         .catch(err => console.log(err))
     } else {
+        //user is not logged in
         res.render('posts', {msg:'You are not logged in'})
     }
 });
@@ -24,6 +27,7 @@ router.get('/', (req,res) => {
     
 
 //display add post form
+//same logic as above method ^^
 router.get('/add', (req,res) => {
     if(req.session.loggedin) { res.render('add') }
     else{res.render('add', {msg:'You are not logged in'})}
@@ -31,8 +35,9 @@ router.get('/add', (req,res) => {
 
 //add a post
 router.post('/add', (req,res) => {
-    //console.log('inside add')
+    //scrape fields from request body
     let { title, content, type, event_date } = req.body;
+    //errors array that will have unique errors pushed to it
     let errors = [];
 
     //validation
@@ -62,7 +67,7 @@ router.post('/add', (req,res) => {
 
         //do anything to standardize fields (good for searching)
 
-        //insert into table
+        //insert into table, hydrate post model
         Post.create({ 
             title,
             content,
@@ -78,10 +83,12 @@ router.post('/add', (req,res) => {
 //search for posts
 router.get('/search',(req,res) =>{
 
-    //lock down for only logged in users
+    //TODO: lock down for only logged in users
     let { term } = req.query;
 
     term = term.toLowerCase();
+    //same as:
+    //Select * from posts where content like %term%
     Post.findAll({
         where: {
             content: {
@@ -96,4 +103,5 @@ router.get('/search',(req,res) =>{
 
 });
 
+//export the router
 module.exports = router;

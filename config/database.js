@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 
+//connect to sql
+//this will eventually be a environment variable
 module.exports = new Sequelize('promos', 'root', '', {
     host: 'localhost',
     dialect: 'mysql',
