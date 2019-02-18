@@ -1,0 +1,38 @@
+ {{#if msg}}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{msg}}
+{{else}}
+ <section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Add A Post</h1>
+      <p>Your contact email will be shared with registered users.</p>
+      {{#each errors}}
+        <div class="error">
+          <p>{{text}}</p>
+        </div>
+      {{/each}}
+
+      <form action="/posts/add" method="POST">
+        <div class="input-group">
+          <label for="title">Post Title</label>
+          <input type="text" name="title" id="title" class="input-box" placeholder="eg. Small Wordpress website, New YouTube Video"
+            maxlength="100" value={{title}}>
+        </div>
+        <div class="input-group">
+          <label for="event_date">Post date</label>
+          <input type="date" name="event_date" id="event_date" class="input-box" value={{event_date}}>
+        </div>
+        <div class="input-group">
+          <label for="type">Post type</label>
+          <input type="text" name="type" id="type" class="input-box" placeholder="eg. Project, Event" value={{type}}>
+        </div>
+        <div class="input-group">
+          <label for="content">Post Content</label>
+          <textarea name="content" id="content" class="input-box" placeholder="Describe the details of the post"
+            rows="10">{{content}}</textarea>
+        </div>
+        <input type="submit" value="Add Post" class="btn btn-reverse">
+      </form>
+    </div>
+  </section>
+{{/if}}

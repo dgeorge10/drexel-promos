@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Drexel Promos</title>
+</head>
+
+<body>
+  <header>
+    <h2><a href="/"><i class="fas fa-comments"></i>
+        Drexel Promos</a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/posts">All Posts</a>
+        </li>
+        <li>
+          <a href="/posts/add">Add Post</a>
+        </li>
+        <li>
+          <a href='/users/login'>Login</a>
+        </li>
+      </ul>
+
+    </nav>
+  </header>
+
+  {{{body}}}
+  <script>
+    $(function(){
+      var typed = new Typed("#typed" , {
+        strings: ["Search for: projects.", "Search for: events.", "Search for: new music."],
+        typeSpeed: 50,
+        // time before typing starts
+        //startDelay: 1200,
+        // backspacing speed
+        backSpeed: 50,
+        smartBackspace: true,
+        // time before backspacing
+        backDelay: 500,
+        // loop
+        loop: true,
+        // false = infinite
+        loopCount: false,
+        // show cursor
+        showCursor: true,
+        // character for cursor
+        cursorChar: "|",
+        // attribute to type (null == text)
+        attr: 'placeholder',
+        // either html or text
+        contentType: 'text',
+        // call when done callback function
+        callback: function() {},
+        // starting callback function before each string
+        preStringTyped: function() {},
+        //callback for every typed string
+        onStringTyped: function() {},
+        // callback for reset
+        resetCallback: function() {}
+      })
+    });
+  </script>
+</body>
+
+</html>

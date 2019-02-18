@@ -1,0 +1,28 @@
+{
+  "name": "promos",
+  "version": "1.0.0",
+  "description": "cs275 project skeleton",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "handlebars-helpers": "^0.10.0",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.42.0",
+    "typed.js": "^2.0.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

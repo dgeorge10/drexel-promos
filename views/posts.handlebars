@@ -1,0 +1,27 @@
+ {{#if msg}}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{msg}}
+{{else}}
+
+<section id="posts" class="container">
+    <h1>All Posts</h1>
+
+    {{#each posts}}
+    <div class="post">
+      <h3>{{title}}</h3>
+      <p>{{content}}</p>
+      <ul>
+        <li>{{type}}</li>
+        <li>Date: {{moment event_date format="MM-DD-YYYY"}}</li>
+      </ul>
+      <div class="type">
+        <small>Promo Type: <span>{{type}}</span></small>
+      </div>
+    </div>
+    {{else}}
+        <p>No Posts Available</p>
+        
+    {{/each}}
+    
+  </section>
+  {{/if}}
