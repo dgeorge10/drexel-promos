@@ -1,4 +1,4 @@
-###How to work on this repo
+#How to work on this repo
 ===========================
 Create a branch off of master called <yourname>-branch or whatever you want
 [GitHub cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
