@@ -17,4 +17,12 @@ Anything that you see dealing with passport.js I have not figured out yet so you
 We need to layout our DB structure before we can all share the same schema. If you want to start testing on your own local sql environment, you will need to update config/databse.js
 We are going to use a really handy node module called [Sequelize](http://docs.sequelizejs.com/) which will do a lot of the dirty work for us. Follow the docs on how to set up your own models and connection strings and whatnot.
 
-If you have any questions definitely let me know
+>If you have any questions definitely let me know
+
+#Relevant Links
+=====================
+[Bcrypt](https://www.npmjs.com/package/bcrypt)
+[Express](https://expressjs.com/en/api.html)
+[Handlebars](https://handlebarsjs.com/)
+[Sequelize](http://docs.sequelizejs.com/)
+[Passport](http://www.passportjs.org/)
