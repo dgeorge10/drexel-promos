@@ -1,6 +1,6 @@
 #How to work on this repo
 ===========================
-Create a branch off of master called <yourname>-branch or whatever you want
+Create a branch off of master called LASTNAME-branch or whatever you want
 [GitHub cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
 Always make sure your branch is up to date with master before trying to merge
 
@@ -21,8 +21,8 @@ We are going to use a really handy node module called [Sequelize](http://docs.se
 
 #Relevant Links
 =====================
-[Bcrypt](https://www.npmjs.com/package/bcrypt)
-[Express](https://expressjs.com/en/api.html)
-[Handlebars](https://handlebarsjs.com/)
-[Sequelize](http://docs.sequelizejs.com/)
+[Bcrypt](https://www.npmjs.com/package/bcrypt)<br/><br/>
+[Express](https://expressjs.com/en/api.html)<br/><br/>
+[Handlebars](https://handlebarsjs.com/)<br/><br/>
+[Sequelize](http://docs.sequelizejs.com/)<br/><br/>
 [Passport](http://www.passportjs.org/)
