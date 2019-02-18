@@ -2,7 +2,8 @@
 ===========================
 Create a branch off of master called LASTNAME-branch or whatever you want
 [GitHub cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
-Always make sure your branch is up to date with master before trying to merge
+Always make sure your branch is up to date with master before trying to merge. 
+>I think it would be cool if instead of automatically merging to master we did pull requests to master, and have someone test the request and make sure that it wont break anything in master
 
 The first time you clone, you are going to have to run `npm install` to install all of the node dependencies. 
 
