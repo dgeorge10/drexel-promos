@@ -5,7 +5,7 @@ Create a branch off of master called LASTNAME-branch or whatever you want
 Always make sure your branch is up to date with master before trying to merge. 
 >I think it would be cool if instead of automatically merging to master we did pull requests to master, and have someone test the request and make sure that it wont break anything in master
 
-The first time you clone, you are going to have to run `npm install` to install all of the node dependencies. 
+The first time you clone, you are going to have to run `npm install` in the root directory of your project to install all of the node dependencies. 
 
 I have nodemon installed as a dev dependency, which is a tool that restarts the server every time you save a file. This way you don't have to stop and restart the server during development. 
 Install nodemon as a dev dependency by running `npm install -D nodemon`
