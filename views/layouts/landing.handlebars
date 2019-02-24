@@ -5,12 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-    crossorigin="anonymous">
-  <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
   <link rel="stylesheet" href="/css/style.css">
   <title>Drexel Promos</title>
@@ -34,6 +33,9 @@
         <li>
           <a href='/users/login'>Login</a>
         </li>
+        <li>
+          <a href="/info">Info</a>
+        </li>
       </ul>
 
     </nav>
@@ -41,8 +43,8 @@
 
   {{{body}}}
   <script>
-    $(function(){
-      var typed = new Typed("#typed" , {
+    $(function () {
+      var typed = new Typed("#typed", {
         strings: ["Search for: projects.", "Search for: events.", "Search for: new music."],
         typeSpeed: 50,
         // time before typing starts
@@ -65,13 +67,13 @@
         // either html or text
         contentType: 'text',
         // call when done callback function
-        callback: function() {},
+        callback: function () { },
         // starting callback function before each string
-        preStringTyped: function() {},
+        preStringTyped: function () { },
         //callback for every typed string
-        onStringTyped: function() {},
+        onStringTyped: function () { },
         // callback for reset
-        resetCallback: function() {}
+        resetCallback: function () { }
       })
     });
   </script>
