@@ -30,11 +30,14 @@ router.post('/login', (req,res) => {
         bcrypt.compare(password, savedPass, (err, result) => {
             if (result) {
                 console.log('success')
+                
+                let userid = user[0].dataValues.id
+                let username = user[0].dataValues.username;
                 //set up some session variables to detect if a user is logged in
                 //this will eventually be replaced by passport stuff
-                req.session.userid = email;
+                req.session.userid = userid;
                 req.session.loggedin = true;
-                req.session.username = email;
+                req.session.username = username;
                 res.redirect('/posts')
             }else{
                 console.log('fail')
@@ -99,5 +102,17 @@ router.post('/register', (req,res) => {
     }
 });
 
+//get user by id 
+router.post('/getUserById', (req,res) => {
+    console.log(req.body)
+    let { userId } = req.body
+    user.findOne({
+        where: {
+            id: userId
+        }
+    })
+    .then((user => res.send(user.username)))
+    .catch(err => console.log(err))
+})
 //export the router back to app.js
 module.exports = router;

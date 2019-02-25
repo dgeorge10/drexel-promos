@@ -2,14 +2,22 @@
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
       {{msg}}
 {{else}}
-
 <section id="posts" class="container">
     <h1>All Posts</h1>
 
     {{#each posts}}
     <div class="post">
       <h3>{{title}}</h3>
+      {{#if youtube}}
+      <center>
+        <iframe id="ytplayer" type="text/html" width="320" height="180"
+            src="https://www.youtube.com/embed/{{youtube}}"
+            frameborder="0"></iframe>
+            <p>{{content}}</p>
+      </center>
+      {{else}}
       <p>{{content}}</p>
+      {{/if}}
       <ul>
         <li>{{type}}</li>
         <li>Date: {{moment event_date format="MM-DD-YYYY"}}</li>
@@ -17,6 +25,14 @@
       <div class="type">
         <small>Promo Type: <span>{{type}}</span></small>
       </div>
+      <div class="type">
+        <small>User: <span id="username">{{username}}</span></small>
+      </div>
+      <div class="type">
+        Likes: <span>{{likes}}</span>
+        <button class="btn btn-block btn-primary" onclick="addLike({{id}});"><i class="fa fa-thumbs-up"></i> Like</button>
+      </div>
+    
     </div>
     {{else}}
         <p>No Posts Available</p>
@@ -24,4 +40,5 @@
     {{/each}}
     
   </section>
+  
   {{/if}}

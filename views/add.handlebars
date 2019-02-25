@@ -5,17 +5,17 @@
  <section id="add" class="container">
     <div class="form-wrap">
       <h1>Add A Post</h1>
-      <p>Your contact email will be shared with registered users.</p>
+      <p>Your name will be shared with registered users.</p>
       {{#each errors}}
         <div class="error">
           <p>{{text}}</p>
         </div>
       {{/each}}
 
-      <form action="/posts/add" method="POST">
+      <form action="/posts/add" method="POST" id="add-form">
         <div class="input-group">
           <label for="title">Post Title</label>
-          <input type="text" name="title" id="title" class="input-box" placeholder="eg. Small Wordpress website, New YouTube Video"
+          <input type="text" name="title" id="title" class="input-box" placeholder="eg. New Photo, New YouTube Video"
             maxlength="100" value={{title}}>
         </div>
         <div class="input-group">
@@ -23,8 +23,14 @@
           <input type="date" name="event_date" id="event_date" class="input-box" value={{event_date}}>
         </div>
         <div class="input-group">
-          <label for="type">Post type</label>
-          <input type="text" name="type" id="type" class="input-box" placeholder="eg. Project, Event" value={{type}}>
+          <label for="type">Post Type</label>    
+          <select name="type" id="type" form="add-form">
+            {{!-- option dynamically loaded from server --}}
+          </select>
+        </div>
+        <div class="input-group" id="youtube-div" style="display:none;">
+          <label for="youtube">Youtube Link</label>
+          <input type="text" name="youtube" id="youtube" class="input-box" placeholder="https://www.youtube.com/watch?v=eoJtlPQzqkQ" value={{youtube}}>
         </div>
         <div class="input-group">
           <label for="content">Post Content</label>
@@ -35,4 +41,33 @@
       </form>
     </div>
   </section>
+  <script>
+    function getEventTypes(){
+      $.ajax({
+        type: "GET",
+        url: "/posts/getEventTypes",
+        success: function(types){
+          $.each(types, function(i, value){
+            $("#type").append("<option>" + value.type + "</option>")
+          });
+        },
+        error: function(e){
+          console.log(e)
+        }
+      })
+    }
+    $(function() {
+      //on page load get event types
+      getEventTypes();
+      $("#type").change(function(){
+        let type = this.value;
+        console.log(type)
+        if(type == "Youtube"){
+          $("#youtube-div").show();
+        }else{
+          $("#youtube-div").hide();
+        }
+      });
+    })
+  </script>
 {{/if}}
