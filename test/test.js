@@ -1,6 +1,6 @@
-const assert = require('assert');
-const user = require('../models/User');
-const post = require('../models/Post');
+var assert = require('assert');
+var user = require('../models/User');
+var post = require('../models/Post');
 
 
 describe('User', function() {
