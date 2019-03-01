@@ -15,9 +15,14 @@
             frameborder="0"></iframe>
             <p>{{content}}</p>
       </center>
-      {{else}}
-      <p>{{content}}</p>
       {{/if}}
+      {{#if image_url}}
+      <center>
+        <a href="{{image_url}}"><img style="width: 150px; height:150px;" src="{{image_url}}"></img></a>
+      </center>
+      {{/if}}
+      <p>{{content}}</p>
+
       <ul>
         <li>{{type}}</li>
         <li>Date: {{moment event_date format="MM-DD-YYYY"}}</li>

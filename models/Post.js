@@ -25,6 +25,9 @@ const Post = db.define('post', {
     },
     youtube: {
         type: Sequelize.STRING
+    },
+    image_url:{
+        type: Sequelize.STRING
     }
 })
 

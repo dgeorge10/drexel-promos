@@ -12,6 +12,30 @@
         </div>
       {{/each}}
 
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black;"id="exampleModalLabel">Upload an image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <form action="/posts/saveImage" method="POST" enctype="multipart/form-data">
+              <input type="file" name="picture" id="file-input" accept="image/*" style="color:black">
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="save" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <form action="/posts/add" method="POST" id="add-form">
         <div class="input-group">
           <label for="title">Post Title</label>
@@ -32,6 +56,12 @@
           <label for="youtube">Youtube Link</label>
           <input type="text" name="youtube" id="youtube" class="input-box" placeholder="https://www.youtube.com/watch?v=eoJtlPQzqkQ" value={{youtube}}>
         </div>
+        <div class="input-group" id="image-div" style="display: none">
+          <label for="image">Image URL</label>
+          <input type="text" name="image" id="image" class="input-box" value="{{image}}" readonly>
+        </div>
+        <button type="button" id="image-button" style="display: none;" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Select an image</button>
         <div class="input-group">
           <label for="content">Post Content</label>
           <textarea name="content" id="content" class="input-box" placeholder="Describe the details of the post"
@@ -55,17 +85,44 @@
           console.log(e)
         }
       })
-    }
+    } 
     $(function() {
+      $("#save").click(function(){
+        let file = $("#file-input")[0].files[0];
+        var formData = new FormData();
+        formData.append('file', file);
+
+        $.ajax({
+          url: "/posts/saveImage",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: (data) => {
+            $("#image-div").show();
+            $("#image").val(data);
+            $('#exampleModal').modal('toggle');
+          }
+
+        })
+      });
       //on page load get event types
       getEventTypes();
       $("#type").change(function(){
         let type = this.value;
-        console.log(type)
         if(type == "Youtube"){
           $("#youtube-div").show();
-        }else{
+          $("#image-div").hide();
+          $("#image-button").hide();
+        }else if(type == "Poster"){
+          $("#image-button").show();
           $("#youtube-div").hide();
+          //$("#image-div").show();
+        }
+        else{
+          $("#youtube-div").hide();
+          $("#image-button").hide();
+          $("#image-div").hide();
         }
       });
     })
