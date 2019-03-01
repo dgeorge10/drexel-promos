@@ -1,2 +1,2 @@
 language: node_js
-- "11.9.0"
+ - node
