@@ -13,6 +13,21 @@ const Post = db.define('post', {
     },
     event_date: {
         type: Sequelize.DATE
+    },
+    likes:{
+        type: Sequelize.INTEGER
+    },
+    user_id:{
+        type: Sequelize.INTEGER
+    },
+    username:{
+        type: Sequelize.STRING
+    },
+    youtube: {
+        type: Sequelize.STRING
+    },
+    image_url:{
+        type: Sequelize.STRING
     }
 })
 

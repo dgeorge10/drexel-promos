@@ -48,7 +48,8 @@ app.get("/info", (req, res) => {
 //this doesn't do anything besides destroy the session
 app.get("/logout", (req, res) => {
   req.session.destroy();
-  res.sendStatus(200);
+  res.status(200);
+  res.redirect("/");
 });
 
 //routes
